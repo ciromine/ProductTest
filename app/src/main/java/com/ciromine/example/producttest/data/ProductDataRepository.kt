@@ -16,7 +16,7 @@ class ProductDataRepository @Inject constructor(
 ) :
     ProductRepository {
 
-    override fun getProductList(limit: Int): Flow<DomainProductList> = flow {
+    override fun getProductList(): Flow<DomainProductList> = flow {
         val productList = with(mapper) {
             remote.getProductList().toDomain()
         }
