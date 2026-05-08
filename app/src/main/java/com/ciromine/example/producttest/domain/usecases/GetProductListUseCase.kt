@@ -1,7 +1,8 @@
 package com.ciromine.example.producttest.domain.usecases
 
+import com.ciromine.example.producttest.domain.Resource
+import com.ciromine.example.producttest.domain.model.DomainProductList
 import com.ciromine.example.producttest.domain.repository.ProductRepository
-import com.ciromine.example.producttest.ui.ProductUiState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
@@ -12,18 +13,15 @@ import javax.inject.Inject
 class GetProductListUseCase @Inject constructor(
     private val repository: ProductRepository
 ) {
-    operator fun invoke(): Flow<ProductUiState> = flow {
+    operator fun invoke(): Flow<Resource<DomainProductList>> = flow {
         try {
-            //emit(ProductUiState.Loading)
-
+            emit(Resource.Loading())
             val productList = repository.getProductList().first()
-
-            emit(ProductUiState.Success(productList))
-
+            emit(Resource.Success(productList))
         } catch (e: HttpException) {
-            emit(ProductUiState.Error(e.localizedMessage ?: "An unexpected HTTP error occurred"))
+            emit(Resource.Error(e.localizedMessage ?: "HTTP Error"))
         } catch (e: IOException) {
-            emit(ProductUiState.Error("Couldn't reach server. Check your internet connection."))
+            emit(Resource.Error("Network Error"))
         }
     }
 }
