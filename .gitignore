@@ -1,15 +1,53 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Archivos de caché y compilación de Gradle
+.gradle/
+/build/
+/*/build/
+
+# Entorno local y variables (¡No subir nunca!)
 local.properties
+
+# Archivos de Android Studio e IntelliJ IDEA
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
+.idea/modules.xml
+.idea/vcs.xml
+.idea/navEditor.xml
+.idea/kotlin_compiler.xml
+*.iml
+
+# Archivos de sistema de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Archivos generados por KSP, Hilt y procesadores de anotaciones
+/app/build/generated/
+/app/build/generated/ksp/
+/app/build/tmp/
+/app/build/outputs/
+/app/build/intermediates/
+
+# Archivos de firmas y certificados (Seguridad)
+*.jks
+*.keystore
+*.pk8
+*.x509.pem
+*.crt
+*.key
+
+# Logs, reportes y temporales de testing
+*.log
+/captures/
+/crashlytics-build.properties
+/app/build/reports/
+/app/build/test-results/
+
+# Archivos NDK / C++ (Si llegas a usar JNI)
+/.cxx/
+*.so
