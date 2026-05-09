@@ -1,6 +1,5 @@
 package com.ciromine.example.producttest.data.mapper
 
-import com.ciromine.example.producttest.data.remote.model.ProductListResponse
 import com.ciromine.example.producttest.data.remote.model.ProductResponse
 import com.ciromine.example.producttest.data.remote.model.RatingResponse
 import com.ciromine.example.producttest.domain.model.DomainProduct
@@ -10,8 +9,8 @@ import javax.inject.Inject
 
 class DataResponseMapper @Inject constructor() {
 
-    fun ProductListResponse.toDomain() = DomainProductList(
-        results = results.map { it.toDomainItem() }
+    fun List<ProductResponse>.toDomain() = DomainProductList(
+        results = this.map { it.toDomainItem() }
     )
 
     private fun ProductResponse.toDomainItem() = DomainProduct(

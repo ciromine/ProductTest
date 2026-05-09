@@ -1,8 +1,8 @@
 package com.ciromine.example.producttest.data.source
 
-import com.ciromine.example.producttest.data.remote.model.ProductListResponse
+import com.ciromine.example.producttest.data.remote.model.ProductResponse
 
 interface ProductRemote {
 
-    suspend fun getProductList(): ProductListResponse
+    suspend fun getProductList(): List<ProductResponse>
 }
