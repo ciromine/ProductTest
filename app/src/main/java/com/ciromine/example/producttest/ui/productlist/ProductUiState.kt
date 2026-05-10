@@ -1,4 +1,4 @@
-package com.ciromine.example.producttest.ui
+package com.ciromine.example.producttest.ui.productlist
 
 import com.ciromine.example.producttest.domain.model.DomainProductList
 

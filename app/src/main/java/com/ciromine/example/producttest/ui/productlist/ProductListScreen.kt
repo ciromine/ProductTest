@@ -13,10 +13,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ciromine.example.producttest.ui.ProductUiState
 
 @Composable
-fun ProductListScreen(state: ProductUiState, modifier: Modifier) {
+fun ProductListScreen(
+    state: ProductUiState,
+    viewModel: ProductListViewModel,
+    modifier: Modifier,
+    onProductClick: (Int) -> Unit
+) {
     Box(modifier = modifier.fillMaxSize()) {
         when (state) {
             is ProductUiState.Loading -> {
@@ -32,7 +36,11 @@ fun ProductListScreen(state: ProductUiState, modifier: Modifier) {
                     contentPadding = PaddingValues(vertical = 12.dp)
                 ) {
                     items(state.productList.results) { product ->
-                        ProductItem(product = product)
+                        ProductItem(
+                            product = product,
+                            favorite = viewModel.isFavorite(product.id),
+                            onClick = onProductClick
+                        )
                     }
                 }
             }

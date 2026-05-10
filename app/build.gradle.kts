@@ -58,6 +58,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation("androidx.compose.material:material-icons-core")
 
     // coroutines
     implementation(libs.kotlinx.coroutines.core)
@@ -67,6 +68,10 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
+    //navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.hilt.navigation.compose)
+
     // DataStore
     implementation(libs.androidx.datastore.preferences)
 
@@ -75,7 +80,7 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp.logging.interceptor)
 
-    // Picasso
+    // coil
     implementation(libs.coil.compose)
 
     // Testing
