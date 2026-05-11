@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
                                     IconButton(onClick = { navController.navigateUp() }) {
                                         Icon(
                                             imageVector = Icons.Default.ArrowBack,
-                                            contentDescription = "Volver"
+                                            contentDescription = stringResource(R.string.label_volver)
                                         )
                                     }
                                 }

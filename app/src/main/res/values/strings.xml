@@ -11,4 +11,5 @@
     <string name="label_datos_guardados">Sin conexión. Mostrando datos guardados.</string>
     <string name="label_uy_algo_sali_mal">¡Uy! Algo salió mal</string>
     <string name="label_error_de_carga">Error de carga</string>
+    <string name="label_volver">Volver</string>
 </resources>
