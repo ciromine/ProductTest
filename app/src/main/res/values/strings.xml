@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">ProductTest</string>
-    <string name="label_add_carrito">Añadir al Carrito - $%1$s</string>
     <string name="label_add_favorito">Agregar como favorito</string>
     <string name="label_remove_favorito">Quitar como favorito</string>
     <string name="label_detalle">Detalle</string>
@@ -9,4 +8,7 @@
     <string name="label_reviews">%1$s (%2$d reviews)</string>
     <string name="label_descripcion">Descripción</string>
     <string name="label_es_favorito">Es Favorito</string>
+    <string name="label_datos_guardados">Sin conexión. Mostrando datos guardados.</string>
+    <string name="label_uy_algo_sali_mal">¡Uy! Algo salió mal</string>
+    <string name="label_error_de_carga">Error de carga</string>
 </resources>

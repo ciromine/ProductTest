@@ -26,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,7 +37,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.ciromine.example.producttest.R
 import com.ciromine.example.producttest.domain.model.DomainProduct
@@ -47,7 +47,7 @@ fun ProductDetailScreen(
     viewModel: ProductDetailViewModel,
     modifier: Modifier = Modifier
 ) {
-    val isFavorite by viewModel.isFavorite().collectAsStateWithLifecycle(initialValue = false)
+    val isFavorite by viewModel.isFavorite().collectAsState(initial = false)
 
     Box(
         modifier = modifier

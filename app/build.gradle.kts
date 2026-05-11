@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "com.ciromine.example.producttest"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -83,6 +83,12 @@ dependencies {
     // coil
     implementation(libs.coil.compose)
 
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
     // Testing
     testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

@@ -1,10 +1,9 @@
-package com.ciromine.example.producttest.core
+package com.ciromine.example.core
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import javax.inject.Inject
 
-class ExecutionThread @Inject constructor() : CoroutineExecutionThread {
+class FakeCoroutineExecutionThread : CoroutineExecutionThread {
 
     override fun uiThread(): CoroutineDispatcher = Dispatchers.Main
 

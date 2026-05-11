@@ -40,7 +40,7 @@ class GetProductListUseCaseTest {
         runBlocking {
             stubGetProductList(flow { emit(stubDomainProductList) })
 
-            val result = getProductListUseCase().drop(1).first()
+            val result = getProductListUseCase(hasInternet = true).drop(1).first()
 
             val successData = (result as Resource.Success).data
 
@@ -53,7 +53,7 @@ class GetProductListUseCaseTest {
             stubGetProductList(flow { throw IOException() })
             val expectedErrorMessage = "Network Error"
 
-            val result = getProductListUseCase().drop(1).first()
+            val result = getProductListUseCase(hasInternet = true).drop(1).first()
 
             val errorMessage = (result as Resource.Error).message
 
@@ -66,7 +66,7 @@ class GetProductListUseCaseTest {
             stubGetProductList(flow { throw IOException() })
             val expectedErrorMessage = "Network Error"
 
-            val result = getProductListUseCase().drop(1).first()
+            val result = getProductListUseCase(hasInternet = true).drop(1).first()
 
             val errorMessage = (result as Resource.Error).message
 
@@ -74,6 +74,6 @@ class GetProductListUseCaseTest {
         }
 
     private fun stubGetProductList(domainProductListFlow: Flow<DomainProductList>) {
-        coEvery { repository.getProductList() } returns domainProductListFlow
+        coEvery { repository.getProductList(hasInternet = true) } returns domainProductListFlow
     }
 }

@@ -1,4 +1,4 @@
-package com.ciromine.example.producttest.core
+package com.ciromine.example.core
 
 import kotlinx.coroutines.CoroutineDispatcher
 

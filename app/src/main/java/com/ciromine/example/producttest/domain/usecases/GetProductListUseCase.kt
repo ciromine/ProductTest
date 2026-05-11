@@ -13,10 +13,10 @@ import javax.inject.Inject
 class GetProductListUseCase @Inject constructor(
     private val repository: ProductRepository
 ) {
-    operator fun invoke(): Flow<Resource<DomainProductList>> = flow {
+    operator fun invoke(hasInternet: Boolean): Flow<Resource<DomainProductList>> = flow {
         try {
             emit(Resource.Loading())
-            val productList = repository.getProductList().first()
+            val productList = repository.getProductList(hasInternet = hasInternet).first()
             emit(Resource.Success(productList))
         } catch (e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "HTTP Error"))

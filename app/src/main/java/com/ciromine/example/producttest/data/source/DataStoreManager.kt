@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -36,11 +37,11 @@ class DataStoreManager @Inject constructor(private val dataStore: DataStore<Pref
         }
     }
 
-    suspend fun isProductFavorite(productId: Int): Boolean {
+    fun isProductFavorite(productId: Int): Flow<Boolean> {
         return dataStore.data.map { preferences ->
             preferences[favoriteProductKey]?.split(",")?.mapNotNull { it.toIntOrNull() }
                 ?.contains(productId) ?: false
-        }.first()
+        }
     }
 }
 
