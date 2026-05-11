@@ -1,7 +1,7 @@
 package com.ciromine.example.producttest.ui.di
 
-import com.ciromine.example.core.CoroutineExecutionThread
-import com.ciromine.example.core.ExecutionThread
+import com.ciromine.example.producttest.core.CoroutineExecutionThread
+import com.ciromine.example.producttest.core.ExecutionThread
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
